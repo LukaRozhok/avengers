@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Avengers</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500,800" rel="stylesheet">
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 300;
+        }
+
+        h1 {
+            font-weight: 800;
+            text-shadow: 0 0 30px rgb(226, 168, 7);
+            color: lightyellow;
+        }
+
+        .bg-image {
+            background-image: url("img/avengers.jpg");
+            filter: blur(4px) brightness(50%) grayscale(50%);
+            height: 100%;
+            padding: 0px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .content {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            padding: 0px;
+            text-align: center;
+            border: 0px solid lightgreen;
+        }
+
+        table.grid {
+            border-collapse: collapse;
+            width: 500px;
+            border: 0px solid #a12b2b;
+            margin-top: 50px;
+            margin-right: 100px;
+            margin-left: auto;
+        }
+
+        td {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            border: 0px solid #55cc10;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
+        .avatar {
+            padding: 0px;
+            transition: transform 1s;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border: 2px solid rgb(226, 168, 7);
+            cursor: pointer;
+        }
+
+        .avatar:hover {
+            box-shadow: 0 0 30px rgb(226, 168, 7);
+            transform: scale(2);
+        }
+
+        .avatar:active {
+            transform: rotate(-180deg);
+        }
+
+        .target {
+            box-shadow: 0 0 30px rgb(40, 201, 8);
+        }
+
+        .main-card {
+            width: 600px;
+            height: auto;
+            float: left;
+            text-align: left;
+            color: white;
+            padding: 20px;
+            border: 0px solid #29dd6e;
+            background-color: rgba(226, 168, 7, 0.2);
+            box-shadow: 0 0 20px darkorange;
+            background: linear-gradient(to right, rgba(226, 168, 7, 0.2), rgba(250, 123, 5, 0.5));
+            border-radius: 20px;
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .hide-element {
+            opacity: 0;
+            transition: 1s ease-in-out;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 20%;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            width: auto;
+            transition: 2s ease-in-out;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 10px;
+            text-align: center;
+            left: 0;
+            right: 0;
+            margin: auto;
+            font-weight: 800;
+        }
+
+        td:hover .overlay {
+            opacity: 0.8;
+        }
+
+        a:link {
+            color: darkorange;
+        }
+
+        a:visited {
+            color: darkorange;
+        }
+    </style>
+    <script>
+        function showInfo(hero) {
+            info = document.getElementById('info')
+            info.classList.add('hide-element');
+            info.addEventListener("transitionend", () => {
+                info.innerHTML = document.getElementById(hero).innerHTML;
+                info.classList.remove('hide-element');
+            });
+
+        }
+        function onStart() {
+            document.getElementById("soundtrack").volume = 0.2;
+        }
+    </script>
+</head>
+
+<body onload="onStart();">
+    <div class="bg-image"></div>
+    <div class="hidden" id="info-main">
+        <h1>Avengers</h1>
+        <p style="font-size: 18px; line-height: 150%;">
+            <b><u>Avengers</u></b> - to saga o superbohaterach od "Marvel Studios".
+            Avengersi uratowali świat niejednokrotnie. Każdy z nich jest unikalny i
+            dobry w wykonywanych zadaniach.<br>
+            Zjednoczyli się w grupę żeby przeciwstawić się największym
+            siłom zła w naszym Wszechświecie.
+            Pokokochało tę serię miliony fanów. Każdemu podoba się inny superbohater.<br>
+            Na tej stronie przedstawimy najbardziej popularnych.
+        </p>
+    </div>
+    <div class="hidden" id="info-hulk">
+        <h1>Hulk</h1>
+        <p>
+            Hulk - Robert Bruce Banner - gdy jest zły zamienia się w zielonego olbrzyma. Podczas pracy nad
+            promieniowaniem gamma
+            zdarzył się wypadek, w trakcie którego Banner został napromieniowany, co zaowocowało niekontrolowanymi
+            transformacjami w Hulka
+            – wielkiego, humanoidalnego stwora o nadludzkiej sile i wytrzymałości, nad którym Banner nie ma właściwie
+            żadnej kontroli.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Potężna siła</li>
+            <li>Duże skoki</li>
+            <li>Genialny umysł</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Bruce po przemianie w Hulka nie kontroluje go</li>
+            <li>Hulk może się "obrazić" i wtedy Bruce nie będzie mógł się przemienić</li>
+            <li>Po przemianie niepamięta co robił gdy był Hulkiem</li>
+        </ul>
+        <a href="https://en.wikipedia.org/wiki/Hulk">Więcej informacji o Hulku znajdziesz tutaj</a>
+    </div>
+    <div class="hidden" id="info-iron-man">
+        <h1>Iron Man</h1>
+        <p>
+            Iron Man - geniusz, filantrop, miliarder, wynalazca. Jest to Tony Stark w przebraniu. Tony na pocztku
+            sprzedawał broń na wojnę, następnie wynalazł swój żelazny kostium, przez to nazwali go Iron Manem -
+            człowiekiem z żelaza.
+
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Mocny kostium sprawdza się na polu bitwy</li>
+            <li>Genialny umysł</li>
+            <li>Potrafi latać</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Jest egoistyczny</li>
+            <li>Rzadko słucha innych</li>
+            <li>Bez kostiumu jest zwykłym człowiekiem</li>
+        </ul>
+        <a href="https://en.wikipedia.org/wiki/Iron_Man">Więcej informacji o Iron Manie znajdziesz tutaj</a>
+    </div>
+    <div class="hidden" id="info-black-panther">
+        <h1>Black Panther</h1>
+        <p>
+            Black Panther - Król Wakandy, która słynie ze złoży wibranium. Ma na imę T'Challa. Ma kostium z wibranium,
+            w którym wygląda jak czarna pantera. T'Challa stał się jeszcze silniejszy po napiciu się z Kwiatu Pantery.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Siła fizyczna</li>
+            <li>Potężny, niezniszczalny kostium</li>
+            <li>Zna sztuki walki</li>
+        </ul>
+        <p>Wady</p>
+        <ul>
+            <li>Bez kostiumu jest bardziej podatny na obrażenia</li>
+        </ul>
+        <a href="https://pl.wikipedia.org/wiki/Czarna_Pantera_(Marvel)">Więcej informacji o Czarnej Panterze znajdziesz
+            tutaj</a>
+    </div>
+    <div class="hidden" id="info-spider-man">
+        <h1>Spider Man</h1>
+        <p>
+            Spider man - zwykły nastolatek o imieniu Peter Parker, który został ukąszony przez radioaktywnego pająka.
+            Od tamtego czasu zaczął umieć wspinać się na ściany i parkurować. Tworzy pajęczynę
+            poprzez specjalną procedurę, a później wykorzystuje ją w walce.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Wspinanie się na ściany</li>
+            <li>Mocna pajęczyna</li>
+            <li>Używanie wiedzy z filmów w walce</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Jest mniej doświadczony od pozostałych ze względu na swój wiek</li>
+            <li>Czasami lekkomyślny</li>
+            <li>Cały czas wpada w kłopoty</li>
+        </ul>
+        <a href="https://pl.wikipedia.org/wiki/Spider-Man">Więcej informacji o Spider Manie znajdziesz tutaj</a>
+    </div>
+    <div class="hidden" id="info-doctor-strange">
+        <h1>Doctor Strange</h1>
+        <p>
+            Doctor Strange - były doktor o imieniu Steven Strange. Był hirurgiem, póki nie zdarzył się wypadek
+            samochodowy, w którym złamał wszystkie palce. Oczywiście po takim zdarzeniu nie mógł już pracować w
+            szpitalu. Pojechał do Azji gdzie spotkał swoją przyszłą nauczycielkę magii. Z tamtej pory chroni jeden
+            z kamieni nieskonczoności - kamień czasu.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Kamień czasu</li>
+            <li>Umiejętność otwierania portali</li>
+            <li>Umiejętność przekształcania magii w przedmioty</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Jest samolubny</li>
+            <li>Jest pyszałkowaty</li>
+
+        </ul>
+        <a href="https://pl.wikipedia.org/wiki/Doktor_Strange">Więcej informacji o Doctorze Strange'u znajdziesz
+            tutaj</a>
+    </div>
+    <div class="hidden" id="info-black-widow">
+        <h1>Czarna wdowa</h1>
+        <p>
+            Czarna Wdowa(Black Widow) - to Natasha Romanoff, na początku jest wprowadzona
+            jako sowiecki szpieg, antagonistka superbohatera Iron Mana. Potem uciekła do
+            Stanów Zjednoczonych, stając się agentem T.A.R.C.Z.Y.,
+            agencji szpiegowskiej, i członkiem zespołu superbohaterów Avengers.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Odważna</li>
+            <li>Sprawnie walczy</li>
+            <li>Dobrze wyszkolona w walce</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Nie ma supermocy</li>
+        </ul>
+        <a href="https://pl.wikipedia.org/wiki/Czarna_Wdowa">
+            Więcej informacji o Czarnej Wdowie znajdziesz tutaj</a>
+    </div>
+    <div class="hidden" id="info-capitain-america">
+        <h1>Kapitan Ameryka</h1>
+        <p>
+            Kapitan Ameryka(Capitain America) - urodzony w 1917 roku ma na imię Steve Rogers.
+            Uczestniczył w II Wojnie Światowej. W ramach experymentu Howarda Starka został
+            super żołnieżem USA. Miał prezentować patriotyzm i potęgę militarną USA. Dostał
+            też od ojca Tonego Starka swoją tarczę z Antarktycznego Vibranium, która nie poddawała
+            prawom fizyki. Poświęcił się wykonując zadanie i został zamrożony na ponad 70 lat.
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Super siła</li>
+            <li>potężna tarcza</li>
+            <li>Lojalny</li>
+            <li>Sprawidliwy</li>
+            <li>Uczciwy</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Nie jest najbystrzejszy</li>
+        </ul>
+        <a href="https://pl.wikipedia.org/wiki/Kapit
+           an_Ameryka">
+            Więcej informacji o Kapitanie Ameryce znajdziesz tutaj</a>
+    </div>
+    <div class="hidden" id="info-thor">
+        <h1>Thor</h1>
+        <p>
+            Thor - syn Odyna Wszechwidzącego - po śmierci ojca stał się nowym Heroldem Gromu. Włada piorunami, a jego
+            broń to młot Mjollnir, który jest z metalu Uru. Jest bogiem i ma ponad 1000 lat. Jest tak potężny że nawet
+            sam Thanos się go obawia...
+        </p>
+        <p>Zalety</p>
+        <ul>
+            <li>Władanie piorunami</li>
+            <li>Potężna siła fizyczna</li>
+            <li>Latanie</li>
+        </ul>
+
+        <p>Wady</p>
+        <ul>
+            <li>Często postępuje lekkomyślnie</li>
+        </ul>
+        <a href="https://en.wikipedia.org/wiki/Thor_(Marvel_Cinematic_Universe)">Więcej informacji o Thorze znajdziesz
+            tutaj</a>
+    </div>
+    <div class="content">
+        <div class="main-card" id="info" onclick="showInfo('info-main');"></div>
+        <script>
+            info = document.getElementById('info')
+            info.innerHTML = document.getElementById('info-main').innerHTML;
+        </script>
+        <div class="hidden" id="info-hawkeye">
+            <h1>Hawkeye</h1>
+            <p>
+                Clint Barton - to imię Hawkeye'a. Mistrzowsko posługuje się łukiem i sztukami walki.
+                Dużo razy pomagał uratować świat Avengersom.
+            </p>
+            <p>Zalety</p>
+            <ul>
+                <li>Mistrzowskie posługiwanie się bronią</li>
+                <li>Nawyki Akrobatyczne</li>
+                <li>Umiejętności skradania się</li>
+            </ul>
+
+            <p>Wady</p>
+            <ul>
+                <li>Nie ma supermocy</li>
+            </ul>
+            <a href="https://pl.wikipedia.org/wiki/Hawkeye_(Marvel)">Więcej informacji o
+                Hawkeye'u znajdziesz tutaj</a>
+        </div>
+
+        <table class="grid">
+            <tr>
+                <td>
+                    <img class="avatar" src="img/iron-man-avatar.jpg" onclick="showInfo('info-iron-man');">
+                    <div class="overlay">Iron Man</div>
+                </td>
+                <td>
+                    <img class="avatar" src="img/hulk-avatar.jpg" onclick="showInfo('info-hulk');">
+                    <div class="overlay">Hulk</div>
+                </td>
+                <td>
+                    <img class="avatar" src="img/black-panther-avatar.jpg" onclick="showInfo('info-black-panther');">
+                    <div class="overlay">Black Panther</div>
+                </td>
+            </tr>
+            <tr>
+                <td><img class="avatar" src="img/spider-man-avatar.jpg" onclick="showInfo('info-spider-man');">
+                    <div class="overlay">Spider Man</div>>
+                </td>
+                <td><img class="avatar" src="img/doctor-strange-avatar.jpg" onclick="showInfo('info-doctor-strange');">
+                    <div class="overlay">Doctor Strange</div>>
+                </td>
+                <td><img class="avatar" src="img/black-widow-avatar.jpg" onclick="showInfo('info-black-widow');">
+                    <div class="overlay">Black Widow</div>>
+                </td>
+            </tr>
+            <tr>
+                <td><img class="avatar" src="img/thor.jpg" onclick="showInfo('info-thor');">
+                    <div class="overlay">Thor</div>>
+                </td>
+                <td><img class="avatar" src="img/capitan-america-avatar.jpg"
+                        onclick="showInfo('info-capitain-america');">
+                    <div class="overlay">Captain America</div>>
+                </td>
+                <td><img class="avatar" src="img/hawkeye-avatar.jpg" onclick="showInfo('info-hawkeye');">
+                    <div class="overlay">Hawkeye</div>>
+                </td>
+            </tr>
+        </table>
+        <!--to enable autoplay in Chrome
+        https://www.ghacks.net/2018/02/06/how-to-control-audio-and-video-autoplay-in-google-chrome/
+        chrome://flags/#autoplay-policy -> No user gesture is required
+        -->
+        <div>
+            <audio id="soundtrack" controls autoplay loop style="height: 20px; padding: 20px; opacity: 0.2;">
+                <source src="mp3/avengers.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div
+            style="text-align: center; font-size: 12px; color: lightyellow; text-shadow: 0 0 10px yellow; float: bottom; margin-bottom: 0px;">
+            © Luka Rozhok 2020
+        </div>
+    </div>
+</body>
+
+</html>
